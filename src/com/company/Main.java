@@ -16,30 +16,35 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        final int MAXCOUNT = 4 ;
+        final int MaxGuess = 4;
 
         int numberOfGuesses = 0;
 
-        System.out.println("Enter your guess: ");
-        int userGuess = input.nextInt();
-
         int generatednumber = (int) Math.ceil(Math.random() * 100);
 
+            do {
+                System.out.println("Pick a number 1 to 100: ");
+                int userGuess = input.nextInt();
+
+                if (userGuess > generatednumber) {
+                    System.out.println("your number is to high!");
+                    numberOfGuesses++;
+                } else if (userGuess < generatednumber) {
+                    System.out.println("your number is to low!");
+                    numberOfGuesses++;
+                } else if (userGuess == generatednumber) {
+                    System.out.println("Congrats, you guessed the number!");
+                }
+
+            } while (numberOfGuesses <= 4);
+
+            Scanner PlayAgain = new Scanner;
 
 
+            System.out.println("You Lost the number was: " + generatednumber );
 
-        do {
-            if (userguess > generatednumber) {
-                System.out.println("your number is to high!");
-                numberOfGuesses++;
-            } else if (userguess < generatednumber) {
-                System.out.println("your number is to low!");
-                numberOfGuesses++;
-            }else if (userGuess == generatednumber) {
-                System.out.println("Congrats, you guessed the number!");
-            } else if (numberOfGuesses == MAXCOUNT) {
-                System.out.println("Sorry, you ran out of chances. The correct number was: " + generatednumber);
-            }
-        } while (numberOfGuesses <= 4);
+
+            System.out.println("Would you like to play again?");
+
     }
 }
